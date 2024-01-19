@@ -8,6 +8,7 @@ import 'package:joyoo/constants/widgets/circular_image_container.dart';
 import 'package:joyoo/constants/widgets/column_text_widget.dart';
 import 'package:joyoo/constants/widgets/text_constant.dart';
 import 'package:joyoo/constants/widgets/text_field_constant.dart';
+import 'package:joyoo/screens/profile/friends_profile/follow_profile.dart/follow_profile_setting.dart';
 
 class FellowProfileScreen extends StatefulWidget {
   const FellowProfileScreen({super.key});
@@ -78,9 +79,25 @@ class _FellowProfileScreenState extends State<FellowProfileScreen> {
             padding: EdgeInsets.only(right: 10.sp, top: 2.sp),
             child: Row(
               children: [
-                Icon(
-                  Icons.more_vert,
-                  color: whiteText,
+                InkWell(
+                  onTap: (){
+                    showModalBottomSheet(
+                      context: context,
+                      isScrollControlled: true,
+                      backgroundColor: blackBackground,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(32.r),
+                      )),
+                      builder: (BuildContext context) {
+                        return const FollowProfileSettings();
+                      },
+                    );
+                  },
+                  child: Icon(
+                    Icons.more_vert,
+                    color: whiteText,
+                  ),
                 ),
                 SizedBox(width: 20.sp),
               ],

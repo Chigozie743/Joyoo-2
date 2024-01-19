@@ -13,6 +13,7 @@ import 'package:joyoo/constants/widgets/text_constant.dart';
 import 'package:joyoo/screens/profile/friends_profile/follow_profile.dart/follow_profile.dart';
 import 'package:joyoo/screens/profile/friends_profile/likes/likes.dart';
 import 'package:joyoo/screens/profile/friends_profile/posts/posts.dart';
+import 'package:joyoo/screens/profile/message/message.dart';
 
 class FriendsProfileScreen extends StatefulWidget {
   const FriendsProfileScreen({super.key});
@@ -155,13 +156,18 @@ class _FriendsProfileScreenState extends State<FriendsProfileScreen> {
                       width: 10.sp,
                     ),
           
-                    NormalTextButtonOnly(
-                      radius: 5.r,
-                      height: 40.sp,
-                      width: 83.sp,
-                      text: "message",
-                      fontSize: 12.sp,
-                      buttonColor: ashColor,
+                    GestureDetector(
+                      onTap: () {
+                        nextScreen(context, ChatScreen());
+                      },
+                      child: NormalTextButtonOnly(
+                        radius: 5.r,
+                        height: 40.sp,
+                        width: 83.sp,
+                        text: "message",
+                        fontSize: 12.sp,
+                        buttonColor: ashColor,
+                      ),
                     ),
                     SizedBox(
                       width: 10.sp,
@@ -262,6 +268,7 @@ class _FriendsProfileScreenState extends State<FriendsProfileScreen> {
           /// PHASE 3: 
           //////////////////////////////////////////////////////////////////////////////
           /////************************ Profile Suggestion *************/
+          if(isChecked)
           Column(
             children: [
               /////************************ Icon and Link *************/
@@ -293,7 +300,6 @@ class _FriendsProfileScreenState extends State<FriendsProfileScreen> {
               ),
       
               ///********************** List View Scroller ***************************/
-              if(isChecked)
               Padding(
                 padding: EdgeInsets.only(left: 10.sp),
                 child: SizedBox(
